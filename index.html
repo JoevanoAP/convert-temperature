@@ -4,9 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Converter Temperature</h1>
+    <h1>Temperature Converter</h1>
+    <hr>
+    <div class="form">
+        <form>
+            <label>Input Number : </label>
+            <input type="number" id="inptnumber" oninput="celciusConv(this.value)">
+            <select id="drpdown" onclick="callValue(),celciusConv(inptnumber.value)" value="Celcius">
+                <option id="celcius">Celcius</option>
+                <option id="kelvin">Kelvin</option>
+                <option id="fahrenheit">Fahrenheit</option>
+            </select>
+        </form>
+    </div>
+    <div class="cnvrt">
+        <h3>Celcius : <span id="c"></span></h3>
+        <h3>Kelvin : <span id="k"></span></h3>
+        <h3>Fahrenheit : <span id="f"></span></h3>
+    </div>
 </body>
+<script>
+    var dropDown = document.getElementById("drpdown");
+        var c = document.getElementById("c");
+        var k = document.getElementById("k");
+        var f = document.getElementById("f");
+
+    var value;
+    console.log(value);
+
+    function callValue(){
+        value = dropDown.value;
+    }
+    function celciusConv(temp){
+        if(value == "Celcius"){
+            c.innerHTML = temp + " Celcius";
+            k.innerHTML = parseFloat(temp) + 273.15 + " Kelvin";
+            f.innerHTML = parseFloat(temp*1.8 + 32) + " Fahrenheit";
+        }
+        else if(value == "Kelvin"){
+            c.innerHTML = temp - 273.15 + " Celcius";
+            k.innerHTML = temp + " Kelvin";
+            f.innerHTML = parseFloat((temp-273.15)*1.8 + 32) + " Fahrenheit";
+        }
+        else if(value == "Fahrenheit"){
+            c.innerHTML = parseFloat((temp-32)*1.8) + " Celcius";
+            k.innerHTML = parseFloat(((temp-32)*1.8)+273.15) + " Kelvin";
+            f.innerHTML = temp + " Fahrenheit";
+        }
+    }
+</script>
 </html>
+
