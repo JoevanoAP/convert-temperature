@@ -1,2 +1,4 @@
-# convert-temperature
-Temperature Converter (Celcius, Kelvin, Fahrenheit)
+## Temperature Converter
+
+Convert Temperature with Celcius, Kelvin and Fahrenheit
+Using basic Javascript, HTML and CSS
